@@ -19,9 +19,7 @@ public class NewsService {
         return newsRepository.findAll();
     }
 
-    public News getByTitle(String title) {
-        return newsRepository.findByTitle(title);
-    }
+    public News getByTitle(String title) { return newsRepository.findByTitle(title); }
 
     public News update(String title, String description, String story, int type, String imageUrl) {
         News news = newsRepository.findByTitle(title);

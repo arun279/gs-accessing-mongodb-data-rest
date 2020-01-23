@@ -18,24 +18,29 @@ public class UserController {
         User user = userService.create(username, password, role);
         return user.toString();
     }
+
     @RequestMapping("/get")
     public User getUser(@RequestParam String username) {
         return userService.getByUsername(username);
     }
+
     @RequestMapping("/getAll")
     public List<User> getAll(){
         return userService.getAll();
     }
+
     @RequestMapping("/update")
     public String update(@RequestParam String username, @RequestParam String password, @RequestParam int role) {
         User user = userService.update(username, password, role);
         return user.toString();
     }
+
     @RequestMapping("/delete")
     public String delete(@RequestParam String username) {
         userService.delete(username);
         return "Deleted "+ username;
     }
+
     @RequestMapping ("/deleteAll")
     public String deleteAll() {
         userService.deleteAll();
