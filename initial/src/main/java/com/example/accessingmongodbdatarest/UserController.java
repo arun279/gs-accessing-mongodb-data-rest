@@ -20,7 +20,7 @@ public class UserController {
     }
     @RequestMapping("/get")
     public User getUser(@RequestParam String username) {
-        return userService.getbyUsername(username);
+        return userService.getByUsername(username);
     }
     @RequestMapping("/getAll")
     public List<User> getAll(){

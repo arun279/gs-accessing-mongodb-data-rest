@@ -7,6 +7,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class News {
     @Id private String id;
     private String title;
+    private String description;
+    private String story;
+    private int type;
+    private String imageUrl;
+
+    public News(String title, String description, String story, int type, String imageUrl) {
+        this.description = description;
+        this.story = story;
+        this.type = type;
+        this.imageUrl = imageUrl;
+        this.title = title;
+    }
 
     public String getTitle() {
         return title;
@@ -51,10 +63,4 @@ public class News {
     public String toString() {
         return "story title:" + title;
     }
-
-    private String description;
-    private String story;
-    private int type;
-    private String imageUrl;
-
 }
