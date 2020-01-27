@@ -19,10 +19,16 @@ public class UserController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @PostMapping("/sign-up")
-    public void signUp(@RequestBody User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
+//    @PostMapping("/sign-up")
+//    public void signUp(@RequestBody User user) {
+//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        userRepository.save(user);
+//    }
+
+    @RequestMapping("/sign-up")
+    public String signUp(@RequestParam String username, @RequestParam String password, @RequestParam int role) {
+        User user = userService.create(username, bCryptPasswordEncoder.encode(password), role);
+        return user.toString();
     }
 
     @RequestMapping("/create")
